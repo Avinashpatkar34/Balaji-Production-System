@@ -1,28 +1,36 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
 name: .NET
 
 on:
-  push:
-    branches: [ "main" ]
+  on the runner.
+2. Verify that the `Microsoft.WebApplication.targets` file exists at the specified location push:
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+.
+
+Alternatively, update the project file to use a valid path or SDK version.
+
+Example:
+
+```xml    branches:
+      - main
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup .
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  ...
+  <Import Project="$(MSBuildSDKsPath)/Microsoft.WebApplication.targetsNET Core
+      uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 8.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
+        dotnet-version: '8.0.x' # Ensure this is" />
+  ...
+</Project>
     - name: Test
       run: dotnet test --no-build --verbosity normal
